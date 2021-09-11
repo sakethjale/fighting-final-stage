@@ -72,13 +72,6 @@ class Game
             fill("red")
             text(player.name,hero1.x,hero1.y+60); 
 
-            if(keyCode===UP_ARROW){
-              player.changePosition(0,-10)
-             
-              hero1.endAnimation=frameCount+10
-              hero1.changeAnimation("hero jump",jump)
-            }
-
             if(keyCode===LEFT_ARROW)
             {
               player.changePosition(-10,0)
@@ -102,7 +95,7 @@ class Game
               hitman="hero1";
 
               kickpunch.play()
-            hero1.setCollider("rectangle",25,-40,10,10)
+            hero1.setCollider("rectangle",25,-27,10,10)
                 
 
             }  
@@ -151,6 +144,7 @@ class Game
           }
           
           if(player.index===2)
+          
         {
             hero1.x=allPlayers["player1"].x;
             hero1.y=allPlayers["player1"].y;
@@ -187,6 +181,8 @@ class Game
               hero2.endAnimation=frameCount+10;
               hitman="hero2";
               kickpunch.play() 
+            hero2.setCollider("rectangle",-25,-27,10,10)
+
 
             }
 
@@ -195,7 +191,9 @@ class Game
               hero2.changeAnimation("hero2 kick",lkick)
               hero2.endAnimation=frameCount+10;   
               hitman="hero2";
-              kickpunch.play()    
+              kickpunch.play() 
+              hero2.setCollider("rectangle",-30,-40,10,10)
+
 
             }
 
@@ -236,6 +234,8 @@ class Game
        this.showHealth();
       hero1.collide(invisibl)
       hero2.collide(invisibl)
+      hero1.collide(edges)
+  hero2.collide(edges)
   }
 }
 

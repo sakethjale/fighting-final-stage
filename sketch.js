@@ -58,6 +58,7 @@ function setup()
   game.start();
 
   edges=createEdgeSprites();
+  
 
   box=createSprite(windowWidth/2,windowHeight/2,300,300)
   box.visible=false
