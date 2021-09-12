@@ -185,7 +185,7 @@ class Game
 
 
             }
-
+     
             if(keyCode===101)
             {
               hero2.changeAnimation("hero2 kick",lkick)
@@ -243,7 +243,7 @@ class Game
     {
       textSize(20);
       fill("blue");
-      text(hero1.name,200,50)
+      text(hero1.name,250,100)
 
       fill("white")
       rect(width/3-200,30,200,20)
@@ -253,7 +253,7 @@ class Game
     
       textSize(20);
       fill("green");
-      text(hero2.name,width/2+100,50)
+      text(hero2.name,width/2+150,100)
 
       fill("white")
       rect(width-500,30,200,20)
@@ -268,7 +268,7 @@ class Game
 
       // hero2.visible=false
 
-      box.visible=true
+     
 
       trofi.visible=true
 
@@ -278,7 +278,8 @@ class Game
       textSize(30)
       fill("red")
       text("Press reload button to play again",width/2-50,height/2+250);
-
+      
+background(endbg)
       var msg=createElement("h1");
       var msg2=createElement("h1");
       if(hero1.health>hero2.health)
@@ -291,7 +292,7 @@ class Game
         msg.html(hero1.name+" Winner")
         msg2.html(hero2.name+" Losser")
       }
-      msg.position(displayWidth/2-90,displayHeight/2-100)
-      msg2.position(displayWidth/2-90,displayHeight/2-50)
+      msg.position(displayWidth/2-90,displayHeight/2-200)
+      msg2.position(displayWidth/2-90,displayHeight/2-150)
     }
   }

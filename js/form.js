@@ -13,12 +13,12 @@ class Form
     this.gide3=createElement('h2')
     this.gide4=createElement('h2')
     this.gide5=createElement('h2')
-    this.reset=createButton('reset')
     this.reload=createButton('reload')
   }
 
   hidden()
   {
+
     this.greeting.hide();
     this.button.hide();
     this.input.hide();
@@ -35,8 +35,8 @@ class Form
 
     this.button.position(displayWidth/2 - 50, 150); 
 
-    this.reload.position(displayWidth/2-50,displayHeight/2-350)
-
+    this.reload.position(displayWidth/-670,displayHeight/2-350)
+    
     this.button.mousePressed(()=>
     {
      this.input.hide();
@@ -48,6 +48,7 @@ class Form
 
      playerCount+=1;
      player.index = playerCount;
+     
 
        if(player.index===1&&hero1!==undefined)
        {
@@ -81,6 +82,7 @@ class Form
 
       this.gide5.html("LEFT ARROW = move left")
       this.gide5.position(50 , displayHeight/4+250);
+      
     })
 
     this.reload.mousePressed(()=>

@@ -10,16 +10,17 @@ var allPlayers
 var ju,jv
 var kicksound,kickpunch
 var timg,ti
-var restart;
+var restartimg,restart;
 var backgroundsound
-var box;
 var hit;
 var health1,health2;
 var trofi,trofimg;
 var hitman;
+var endbg
 function preload(){
+  endbg=loadImage("photos/fighting2.png")
   trofimg=loadImage("photos/end.png")
-  restart=loadImage("photos/restart.png")
+  restartimg=loadImage("photos/restart.png")
   bgimg2=loadAnimation("photos/fighting2.png")
   timg=loadImage("photos/title.png")
   firstpageimg=loadImage("photos/fighting.png")
@@ -60,8 +61,7 @@ function setup()
   edges=createEdgeSprites();
   
 
-  box=createSprite(windowWidth/2,windowHeight/2,300,300)
-  box.visible=false
+  
 
   ti=createSprite(windowWidth/2,windowHeight/2+200)
   ti.addImage("t",timg)
@@ -94,12 +94,11 @@ function setup()
 
   backgroundsound.play()
 
-  box=createSprite(windowWidth/2,windowHeight/2,300,300)  
-  box.visible=false
+  
 
-  trofi=createSprite(windowWidth/2,windowHeight/2-100,20,20)
+  trofi=createSprite(windowWidth/2,windowHeight/2-250,20,20)
   trofi.addImage("trofimg",trofimg)
-  trofi.scale=0.5
+  trofi.scale=0.9
   trofi.visible=false
 }
 function draw() 
@@ -146,9 +145,28 @@ function draw()
 
  if(gameState===2)
  {
+
+  
+
+
+   restart=createSprite(windowWidth/2,windowHeight/2+250)
+   restart.addImage("re",restartimg)
+   restart.scale=0.4
+
   game.end(); 
  }  
- 
+ if(mousePressedOver(restart)){
+  game.update(0)
+
+  player.updateCount(0)
+
+  window.location.reload()
+  
+  database.ref('/').update(
+  {
+    players:null,
+  })
+ }
 
   drawSprites();
 }
